@@ -1,0 +1,37 @@
+.mainHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.id {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+.idDiv {
+    display: flex;
+    justify-content: center;
+}
+.password {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.passwordDiv {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+}

@@ -1,0 +1,27 @@
+.mainHeader {
+    display: flex;
+    justify-content: center;
+}
+
+
+.sameDiv {
+    text-align: center;
+}
+
+.id {
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.button {
+    height: 40px;
+    width: 80px;
+    font-size: 20px;
+}
