@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>membership</title>
+  <link rel="stylesheet" href="/memberShip.css">
+</head>
+<body>
+<h2 class="mainHeader">정보를 입력하세요</h2>
+<hr>
+<div class="sameDiv">
+  <div class="id">아이디</div>
+  <input>
+  <div style="padding-top: 10px">
+    <button>중복확인</button>
+  </div>
+  <div class="id">비밀번호</div>
+  <input>
+  <div class="id">이름</div>
+  <input>
+  <div class="id">이메일</div>
+  <input>
+  <div class="id">전화번호</div>
+  <input>
+</div>
+<div class="buttonDiv">
+  <button class="button" th:onclick="|location.href='@{/}'|">취소</button>
+  <div style="margin: 35px"></div>
+  <button class="button">가입</button>
+</div>
+</body>
+</html>

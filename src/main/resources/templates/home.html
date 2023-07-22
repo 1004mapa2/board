@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+<h1 class="mainHeader">로그인</h1>
+<hr style="margin-bottom: 50px">
+<div class="idDiv">
+    <div class="id">아이디</div>
+    <input>
+</div>
+
+<div style="height: 10px"></div>
+
+<div class="passwordDiv">
+    <div class="password">비밀번호</div>
+    <input>
+</div>
+<div class="buttonDiv">
+    <button class="button">로그인</button>
+    <div style="margin: 35px"></div>
+    <button class="button" type="button" th:onclick="|location.href='@{/memberShip}'|">회원가입</button>
+</div>
+</body>
+</html>
