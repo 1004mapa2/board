@@ -6,5 +6,26 @@
 </head>
 <body>
 <h2>게시판</h2>
+<div>BOARD</div>
+<div>
+  <table border="1">
+    <tr>
+      <td>번호</td>
+      <td>제목</td>
+      <td>내용</td>
+      <td>작성자</td>
+      <td>작성일</td>
+      <td>조회수</td>
+    </tr>
+    <tr th:each="vo:${list}">
+      <td th:text="${vo.getIdx}"></td>
+      <td th:text="${vo.getTitle}"></td>
+      <td th:text="${vo.getContent}"></td>
+      <td th:text="${vo.getWriter()}"></td>
+      <td th:text="${vo.getIndate()}"></td>
+      <td th:text="${vo.getCount()}"></td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>
