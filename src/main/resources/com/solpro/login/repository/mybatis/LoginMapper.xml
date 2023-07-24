@@ -3,9 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.solpro.login.repository.mybatis.LoginMapper">
 
-    <insert id="insert" parameterType="LoginVO">
-        insert into member(userPassword, userName, userEmail, userPhone)
-        values(#{userPassword}, #{userName}, #{userEmail}, #{userPhone})
+    <insert id="insert" parameterType="com.solpro.login.domain.LoginVO">
+        insert into member(userId, userPassword, userName, userEmail, userPhone)
+        values(#{userId}, #{userPassword}, #{userName}, #{userEmail}, #{userPhone})
     </insert>
 
 </mapper>

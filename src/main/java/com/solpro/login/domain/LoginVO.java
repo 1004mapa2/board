@@ -1,11 +1,10 @@
 package com.solpro.login.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class LoginVO {
+    private int num;
     private String userId;
     private String userPassword;
     private String userName;
