@@ -1,4 +1,4 @@
-package com.solpro.proj;
+package com.solpro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
