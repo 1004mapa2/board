@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>boardContent</title>
+</head>
+<body>
+<div>board</div>
+<table>
+    <tr>
+        <td>제목</td>
+        <td th:text="${vo.getTitle}"></td>
+    </tr>
+    <tr>
+        <td>내용</td>
+        <td th:text="${vo.getContent}"></td>
+    </tr>
+</table>
+<a th:href="@{boardDelete(idx=${vo.getIdx})}">삭제</a>
+<a th:href="@{boardList}">목록</a>
+<a th:href="@{boardUpdate(idx=${vo.getIdx})}">수정</a>
+</body>
+</html>

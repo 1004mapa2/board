@@ -16,6 +16,7 @@
       <td>작성자</td>
       <td>작성일</td>
       <td>조회수</td>
+      <td>상세보기</td>
     </tr>
     <tr th:each="vo:${list}">
       <td th:text="${vo.getIdx}"></td>
@@ -24,8 +25,10 @@
       <td th:text="${vo.getWriter()}"></td>
       <td th:text="${vo.getIndate()}"></td>
       <td th:text="${vo.getCount()}"></td>
+      <td><a th:href="@{boardContent(idx=${vo.getIdx})}">상세</a></td>
     </tr>
   </table>
+  <a href="boardForm">글쓰기</a>
 </div>
 </body>
 </html>
