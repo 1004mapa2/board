@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>boardForm</title>
+</head>
+<body>
+<form action="boardInsert" method="post">
+  <div>제목</div>
+  <input type="text" name="title">
+  <div>내용</div>
+  <textarea rows="7" name="content"></textarea>
+  <button type="submit">등록</button>
+  <button type="button" th:onclick="|location.href='@{/boardList}'|">취소</button>
+</form>
+</body>
+</html>
