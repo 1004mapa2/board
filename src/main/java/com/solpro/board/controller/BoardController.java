@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,22 +22,65 @@ public class BoardController {
         this.mapper = mapper;
     }
 
+
     @GetMapping("/boardList")
     public String boardList(Model model) {
 
-        Board vo = new Board();
-        vo.setIdx(1);
-        vo.setTitle("제목");
-        vo.setContent("내용");
-        vo.setWriter("박형준");
-        vo.setIndate("2023-07-24");
-        vo.setCount(0);
-
-        List<Board> list = new ArrayList<>();
-        list.add(vo);
+        List<Board> list = mapper.getLists();
+//        Board vo = new Board();
+//        vo.setIdx(1);
+//        vo.setTitle("제목");
+//        vo.setContent("내용");
+//        vo.setWriter("박형준");
+//        vo.setIndate("2023-07-24");
+//        vo.setCount(0);
+//        List<Board> list = new ArrayList<>();
+//        list.add(vo);
 
         model.addAttribute("list", list);
-
         return "board";
+    }
+
+    @GetMapping("/boardForm")
+    public String boardForm() {
+
+        return "boardForm";
+    }
+
+    @PostMapping("/boardInsert")
+    public String boardInsert(Board vo) {
+
+        mapper.boardInsert(vo);
+        return "redirect:/boardList";
+    }
+
+    @GetMapping("/boardContent")
+    public String boardContent(@RequestParam("idx") int idx, Model model) {
+
+        Board vo = mapper.boardContent(idx);
+        model.addAttribute("vo", vo);
+        return "boardContent";
+    }
+
+    @GetMapping("/boardDelete")
+    public String boardDelete(@RequestParam("idx") int idx) {
+
+        mapper.boardDelete(idx);
+        return "redirect:/boardList";
+    }
+
+    @GetMapping("/boardUpdate")
+    public String boardUpdateForm(@RequestParam("idx") int idx, Model model) {
+
+        Board vo = mapper.boardContent(idx);
+        model.addAttribute("vo", vo);
+        return "boardUpdate";
+    }
+
+    @PostMapping("/boardUpdate")
+    public String boardUpdate(Board vo) {
+
+        mapper.boardUpdate(vo);
+        return "redirect:/boardList";
     }
 }
