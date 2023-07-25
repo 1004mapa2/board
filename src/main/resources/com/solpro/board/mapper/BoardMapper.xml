@@ -7,4 +7,25 @@
         select * from board order by idx desc
     </select>
 
+
+    <insert id="boardInsert" parameterType="com.solpro.board.entity.Board">
+        insert into board(title, content)
+        values(#{title}, #{content})
+    </insert>
+
+<!--    파라미터가 하나면 생략할 수 있다.-->
+<!--    <select id="boardContent" parameterType="int" resultType="com.solpro.board.entity.Board">-->
+    <select id="boardContent" resultType="com.solpro.board.entity.Board">
+        select * from board where idx=#{idx}
+    </select>
+
+    <delete id="boardDelete">
+        delete from board where idx=#{idx}
+    </delete>
+
+    <update id="boardUpdate" parameterType="com.solpro.board.entity.Board">
+        update board set title=#{title}, content=#{content}
+        where idx=#{idx}
+    </update>
+
 </mapper>
