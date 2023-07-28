@@ -11,16 +11,16 @@
   <table>
     <tr>
       <td>제목</td>
-      <td><input type="text" th:value="${vo.getTitle}"></td>
+      <td><input type="text" name="title" th:value="${vo.getTitle}"></td>
     </tr>
     <tr>
       <td>내용</td>
-      <td><input type="text" th:value="${vo.getContent}"></td>
+      <td><input type="text" name="content" th:value="${vo.getContent}"></td>
     </tr>
   </table>
-  <button type="submit">수정</button>
-  <button type="reset">취소</button>
   <button type="button" th:onclick="|location.href='@{/boardList}'|">목록</button>
+  <button type="reset">취소</button>
+  <button type="submit">수정</button>
 </form>
 
 </body>

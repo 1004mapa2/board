@@ -4,7 +4,7 @@
 <mapper namespace="com.solpro.board.mapper.BoardMapper">
 
     <select id="getLists" resultType="com.solpro.board.entity.Board">
-        select * from board order by idx desc
+        select * from board order by idx asc;
     </select>
 
 
