@@ -2,33 +2,92 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>board</title>
+  <title>게시판 목록</title>
+  <link rel="stylesheet" href="/board.css">
 </head>
 <body>
-<h2>게시판</h2>
-<div>BOARD</div>
-<div>
-  <table border="1">
-    <tr>
-      <td>번호</td>
-      <td>제목</td>
-      <td>내용</td>
-      <td>작성자</td>
-      <td>작성일</td>
-      <td>조회수</td>
-      <td>상세보기</td>
-    </tr>
-    <tr th:each="vo:${list}">
-      <td th:text="${vo.getIdx}"></td>
-      <td th:text="${vo.getTitle}"></td>
-      <td th:text="${vo.getContent}"></td>
-      <td th:text="${vo.getWriter()}"></td>
-      <td th:text="${vo.getIndate()}"></td>
-      <td th:text="${vo.getCount()}"></td>
-      <td><a th:href="@{boardContent(idx=${vo.getIdx})}">상세</a></td>
-    </tr>
-  </table>
-  <a href="boardForm">글쓰기</a>
-</div>
+  <div class="맨위">
+    <div class="맨위게시판" th:onclick="|location.href='@{/boardList}'|">나카나카 홈페이지</div>
+    <div style="width: 72vw"></div>
+    <div class="맨위마이페이지">마이페이지</div>
+    <div style="width: 1vw"></div>
+    <div class="로그아웃">로그아웃</div>
+  </div>
+
+  <div class="카테고리탭">
+    <div class="카테고리1 카테고리클릭">카테고리1</div>
+    <div class="카테고리2">카테고리2</div>
+    <div class="카테고리3">카테고리3</div>
+    <div class="카테고리4">카테고리4</div>
+    <div class="카테고리5">카테고리5</div>
+  </div>
+
+  <div style="margin: 40px"></div>
+  <div style="margin-left: 50px; margin-right: 50px">
+    <div class="자유게시판글자">자유게시판</div>
+    <hr>
+
+    <div class="boardHead">
+      <div class="인덱스">No</div>
+      <div class="제목">제목</div>
+      <div class="작성자">작성자</div>
+      <div class="작성시간">작성시간</div>
+      <div class="조회수">조회수</div>
+    </div>
+    <hr>
+    <div class="row" th:each="vo:${list}" th:onclick="|location.href='@{boardContent(idx=${vo.getIdx()})}'|">
+      <div class="인덱스" th:text="${vo.getIdx()}">1</div>
+      <div class="제목" style="text-align:justify" th:text="${vo.getTitle()}">제목샘플</div>
+      <div class="작성자" th:text="${vo.getWriter()}">작성자샘플</div>
+      <div class="작성시간" th:text="${vo.getIndate()}">작성시간샘플</div>
+      <div class="조회수" th:text="${vo.getCount()}">조회수샘플</div>
+    </div>
+    <hr>
+    <div class="글쓰기위치">
+      <a class="글쓰기" href="boardForm">글쓰기</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.카테고리1').addEventListener('click', function(){
+      document.querySelector('.카테고리1').classList.add('카테고리클릭');
+      document.querySelector('.카테고리2').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리3').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리4').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리5').classList.remove('카테고리클릭');
+    })
+
+    document.querySelector('.카테고리2').addEventListener('click', function(){
+      document.querySelector('.카테고리2').classList.add('카테고리클릭');
+      document.querySelector('.카테고리1').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리3').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리4').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리5').classList.remove('카테고리클릭');
+    })
+
+    document.querySelector('.카테고리3').addEventListener('click', function(){
+      document.querySelector('.카테고리3').classList.add('카테고리클릭');
+      document.querySelector('.카테고리1').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리2').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리4').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리5').classList.remove('카테고리클릭');
+    })
+
+    document.querySelector('.카테고리4').addEventListener('click', function(){
+      document.querySelector('.카테고리4').classList.add('카테고리클릭');
+      document.querySelector('.카테고리1').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리2').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리3').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리5').classList.remove('카테고리클릭');
+    })
+
+    document.querySelector('.카테고리5').addEventListener('click', function(){
+      document.querySelector('.카테고리5').classList.add('카테고리클릭');
+      document.querySelector('.카테고리1').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리2').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리3').classList.remove('카테고리클릭');
+      document.querySelector('.카테고리4').classList.remove('카테고리클릭');
+    })
+  </script>
 </body>
 </html>

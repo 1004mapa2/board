@@ -1,0 +1,122 @@
+.맨위 {
+    display: flex;
+}
+.맨위게시판 {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.맨위마이페이지 {
+    font-size: 20px;
+}
+
+.로그아웃 {
+    font-size: 20px;
+}
+
+.카테고리탭 {
+    display: flex;
+}
+
+.카테고리1 {
+    display: flex;
+    font-size: 25px;
+    width: 20vw;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.카테고리2 {
+    display: flex;
+    font-size: 25px;
+    width: 20vw;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.카테고리3 {
+    display: flex;
+    font-size: 25px;
+    width: 20vw;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.카테고리4 {
+    display: flex;
+    font-size: 25px;
+    width: 20vw;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.카테고리5 {
+    display: flex;
+    font-size: 25px;
+    width: 20vw;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.카테고리클릭 {
+    background-color: darkcyan;
+    color: white;
+}
+.자유게시판글자 {
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.boardHead {
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+}
+
+.인덱스 {
+    width: 5vw;
+}
+
+.제목 {
+    width: 70vw;
+}
+
+.작성자 {
+    width: 10vw;
+}
+
+.작성시간 {
+    width: 10vw;
+}
+
+.조회수 {
+    width: 5vw;
+}
+
+.row {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+}
+
+.글쓰기위치 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.글쓰기 {
+    background-color: darkcyan;
+    width: 5vw;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
