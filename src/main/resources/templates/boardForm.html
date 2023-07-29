@@ -2,16 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>boardForm</title>
+  <title>게시판 글쓰기</title>
+  <link rel="stylesheet" href="/boardForm.css">
 </head>
 <body>
+<div class="맨위">
+  <div class="맨위게시판" th:onclick="|location.href='@{/boardList}'|">나카나카 홈페이지</div>
+  <div style="width: 75vw"></div>
+  <div class="맨위마이페이지">마이페이지</div>
+  <div style="width: 1vw"></div>
+  <div class="로그아웃">로그아웃</div>
+</div>
 <form action="boardInsert" method="post">
-  <div>제목</div>
-  <input type="text" name="title">
-  <div>내용</div>
-  <textarea rows="7" name="content"></textarea>
-  <button type="submit">등록</button>
-  <button type="button" th:onclick="|location.href='@{/boardList}'|">취소</button>
+  <div class="제목클래스">
+    <input class="제목입력" type="text" name="title" placeholder="제목을 입력하세요">
+  </div>
+  <hr>
+  <div class="내용클래스">
+    <textarea class="내용입력" name="content"></textarea>
+  </div>
+  <div class="버튼div">
+    <button class="버튼옵션" type="button" th:onclick="|location.href='@{/boardList}'|">취소</button>
+    <div style="width: 10vw"></div>
+    <button class="버튼옵션" type="submit">등록</button>
+  </div>
 </form>
 </body>
 </html>

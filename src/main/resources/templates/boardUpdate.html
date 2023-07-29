@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>boardContent</title>
+  <link rel="stylesheet" href="/boardUpdate.css">
 </head>
 <body>
-<div>board</div>
+<div class="맨위">
+  <div class="맨위게시판" th:onclick="|location.href='@{/boardList}'|">나카나카 홈페이지</div>
+  <div style="width: 72vw"></div>
+  <div class="맨위마이페이지">마이페이지</div>
+  <div style="width: 1vw"></div>
+  <div class="로그아웃">로그아웃</div>
+</div>
+
+
 <form action="boardUpdate" method="post">
   <input type="hidden" name="idx" th:value="${vo.getIdx}">
-  <table>
-    <tr>
-      <td>제목</td>
-      <td><input type="text" name="title" th:value="${vo.getTitle}"></td>
-    </tr>
-    <tr>
-      <td>내용</td>
-      <td><input type="text" name="content" th:value="${vo.getContent}"></td>
-    </tr>
-  </table>
-  <button type="button" th:onclick="|location.href='@{/boardList}'|">목록</button>
-  <button type="reset">취소</button>
-  <button type="submit">수정</button>
-</form>
+  <div class="제목클래스">
+    <input class="제목입력" type="text" name="title" th:value="${vo.getTitle()}">
+  </div>
 
+  <hr>
+
+  <div class="내용클래스">
+    <textarea class="내용입력" name="content" th:text="${vo.getContent()}"></textarea>
+  </div>
+
+  <div class="버튼div">
+    <button class="버튼옵션" type="button" th:onclick="|location.href='@{/boardList}'|">목록</button>
+    <div style="width: 15vw"></div>
+    <button class="버튼옵션" type="reset">취소</button>
+    <div style="width: 15vw"></div>
+    <button class="버튼옵션" type="submit">수정</button>
+  </div>
+</form>
 </body>
 </html>
