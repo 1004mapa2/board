@@ -1,0 +1,71 @@
+.맨위 {
+    display: flex;
+}
+.맨위게시판 {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.맨위마이페이지 {
+    font-size: 20px;
+}
+
+.로그아웃 {
+    font-size: 20px;
+}
+
+.제목클래스 {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+.제목입력 {
+    width: 50vw;
+    height: 40px;
+    font-size: 20px;
+}
+
+.부수내용머리 {
+    display: flex;
+    justify-content: flex-start;
+    width: 15vw;
+    font-size: 17px;
+    padding-left: 60vw;
+}
+
+.부수내용몸체 {
+    padding-left: 10px;
+}
+
+hr {
+    width: 50vw;
+}
+
+.내용클래스 {
+    display: flex;
+    justify-content: center;
+}
+
+.내용입력 {
+    width: 50vw;
+    height: 30vw;
+    font-size: 20px;
+}
+
+.버튼div {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.버튼옵션 {
+    background-color: darkcyan;
+    width: 5vw;
+    height: 50px;
+    color: white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
