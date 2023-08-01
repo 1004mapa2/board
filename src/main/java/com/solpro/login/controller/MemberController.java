@@ -16,11 +16,11 @@ public class MemberController {
         this.mapper = mapper;
     }
 
-    @GetMapping("/")
-    public String getLogin() {
-
-        return "member/home";
-    }
+//    @GetMapping("/")
+//    public String getLogin() {
+//
+//        return "member/home";
+//    }
 
     @GetMapping("/memberShip")
     public String getMemberShip() {
