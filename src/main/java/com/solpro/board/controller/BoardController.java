@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,20 +38,20 @@ public class BoardController {
 //        list.add(vo);
 
         model.addAttribute("list", list);
-        return "board";
+        return "board/board";
     }
 
     @GetMapping("/boardForm")
     public String boardForm() {
 
-        return "boardForm";
+        return "board/boardForm";
     }
 
     @PostMapping("/boardInsert")
     public String boardInsert(Board vo) {
 
         mapper.boardInsert(vo);
-        return "redirect:/boardList";
+        return "redirect:/board/boardList";
     }
 
     @GetMapping("/boardContent")
@@ -59,14 +59,15 @@ public class BoardController {
 
         Board vo = mapper.boardContent(idx);
         model.addAttribute("vo", vo);
-        return "boardContent";
+        mapper.boardCount(idx);
+        return "board/boardContent";
     }
 
     @GetMapping("/boardDelete")
     public String boardDelete(@RequestParam("idx") int idx) {
 
         mapper.boardDelete(idx);
-        return "redirect:/boardList";
+        return "redirect:/board/boardList";
     }
 
     @GetMapping("/boardUpdate")
@@ -74,13 +75,13 @@ public class BoardController {
 
         Board vo = mapper.boardContent(idx);
         model.addAttribute("vo", vo);
-        return "boardUpdate";
+        return "board/boardUpdate";
     }
 
     @PostMapping("/boardUpdate")
     public String boardUpdate(Board vo) {
 
         mapper.boardUpdate(vo);
-        return "redirect:/boardList";
+        return "redirect:/board/boardList";
     }
 }

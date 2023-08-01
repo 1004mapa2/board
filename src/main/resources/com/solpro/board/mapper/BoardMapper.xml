@@ -9,8 +9,8 @@
 
 
     <insert id="boardInsert" parameterType="com.solpro.board.entity.Board">
-        insert into board(title, content)
-        values(#{title}, #{content})
+        insert into board(title, content, writer)
+        values(#{title}, #{content}, #{writer})
     </insert>
 
 <!--    파라미터가 하나면 생략할 수 있다.-->
@@ -26,6 +26,10 @@
     <update id="boardUpdate" parameterType="com.solpro.board.entity.Board">
         update board set title=#{title}, content=#{content}
         where idx=#{idx}
+    </update>
+
+    <update id="boardCount">
+        update board set count = count + 1 where idx=#{idx}
     </update>
 
 </mapper>
