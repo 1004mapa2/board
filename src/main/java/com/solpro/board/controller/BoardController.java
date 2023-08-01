@@ -23,19 +23,10 @@ public class BoardController {
     }
 
 
-    @GetMapping("/boardList")
+    @GetMapping("/")
     public String boardList(Model model) {
 
         List<Board> list = mapper.getLists();
-//        Board vo = new Board();
-//        vo.setIdx(1);
-//        vo.setTitle("제목");
-//        vo.setContent("내용");
-//        vo.setWriter("박형준");
-//        vo.setIndate("2023-07-24");
-//        vo.setCount(0);
-//        List<Board> list = new ArrayList<>();
-//        list.add(vo);
 
         model.addAttribute("list", list);
         return "board/board";
@@ -51,7 +42,7 @@ public class BoardController {
     public String boardInsert(Board vo) {
 
         mapper.boardInsert(vo);
-        return "redirect:/board/boardList";
+        return "redirect:/";
     }
 
     @GetMapping("/boardContent")
@@ -67,7 +58,7 @@ public class BoardController {
     public String boardDelete(@RequestParam("idx") int idx) {
 
         mapper.boardDelete(idx);
-        return "redirect:/board/boardList";
+        return "redirect:/";
     }
 
     @GetMapping("/boardUpdate")
@@ -82,6 +73,6 @@ public class BoardController {
     public String boardUpdate(Board vo) {
 
         mapper.boardUpdate(vo);
-        return "redirect:/board/boardList";
+        return "redirect:/";
     }
 }

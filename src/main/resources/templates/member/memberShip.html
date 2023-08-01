@@ -54,9 +54,11 @@
     function passwordCheck(){
       let password1 = document.querySelector('#memPassword1').value;
       let password2 = document.querySelector('#memPassword2').value;
-      if(password1 == password2){
+      if(password1 == password2 && password1 != "" && password2 != ""){
         document.querySelector('#오류메시지').innerHTML = "비밀번호가 같습니다.";
         document.querySelector('#오류메시지').style.color = "green";
+      } else if(password1 == "" || password2 == "") {
+        document.querySelector('#오류메시지').innerHTML = "";
       } else {
         document.querySelector('#오류메시지').innerHTML = "비밀번호가 같지 않습니다.";
         document.querySelector('#오류메시지').style.color = "red";
