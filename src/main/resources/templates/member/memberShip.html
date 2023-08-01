@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>membership</title>
+  <link rel="stylesheet" href="/memberShip.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2 class="mainHeader">정보를 입력하세요</h2>
+  <hr>
+  <form>
+    <div class="sameDiv">
+      <div class="id">아이디</div>
+      <input type="text" name="memId" id="memId">
+      <div style="padding-top: 10px">
+        <button type="button" th:onclick="registerCheck()">중복확인</button>
+      </div>
+      <div class="id">비밀번호</div>
+      <input type="password" name="memPassword1" id="memPassword1" onkeyup="passwordCheck()">
+      <div class="id">비밀번호확인</div>
+      <input type="password" name="memPassword2" id="memPassword2" onkeyup="passwordCheck()">
+      <div class="id">이름</div>
+      <input type="text" name="memName" id="memName">
+      <div class="id">이메일</div>
+      <input type="text" name="memEmail" id="memEmail">
+    </div>
+    <div id="오류메시지"></div>
+    <div class="buttonDiv">
+      <button type="button" class="button" th:onclick="|location.href='@{/}'|">취소</button>
+      <div style="margin: 35px"></div>
+      <button type="submit" class="button">가입</button>
+    </div>
+  </form>
+  <script>
+    function registerCheck(){
+      let memId = document.querySelector('#memId').value;
+      $.ajax({
+        url : "/memberCheck",
+        type : "get",
+        data : {"memId" : memId},
+        success : function (result){
+          if(result == 0){
+            alert("사용중인 아이디입니다.");
+          } else if(result == 1){
+            alert("아이디를 입력하세요.");
+          } else {
+            alert("사용가능한 아이디입니다.")
+          }
+        },
+        error : function (){ alert("error"); }
+      });
+    }
+    function passwordCheck(){
+      let password1 = document.querySelector('#memPassword1').value;
+      let password2 = document.querySelector('#memPassword2').value;
+      if(password1 == password2){
+        document.querySelector('#오류메시지').innerHTML = "비밀번호가 같습니다.";
+        document.querySelector('#오류메시지').style.color = "green";
+      } else {
+        document.querySelector('#오류메시지').innerHTML = "비밀번호가 같지 않습니다.";
+        document.querySelector('#오류메시지').style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
