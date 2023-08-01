@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 목록</title>
+  <link rel="stylesheet" href="/board.css">
+</head>
+<body>
+  <div th:fragment="nacanaca">
+    <div class="맨위">
+      <div class="맨위게시판" th:onclick="|location.href='@{/boardList}'|">나카나카 홈페이지</div>
+      <div style="width: 72vw"></div>
+      <div class="맨위마이페이지">마이페이지</div>
+      <div style="width: 1vw"></div>
+      <div class="로그아웃">로그아웃</div>
+    </div>
+  </div>
+</body>
+</html>

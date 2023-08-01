@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 글쓰기</title>
+  <link rel="stylesheet" href="/boardForm.css">
+</head>
+<body>
+  <div th:include="board/header :: nacanaca"></div>
+
+  <form action="boardInsert" method="post">
+    <div class="제목클래스">
+      <input class="제목입력" type="text" name="title" placeholder="제목을 입력하세요">
+    </div>
+    <hr>
+    <div class="내용클래스">
+      <textarea class="내용입력" name="content"></textarea>
+    </div>
+    <div class="버튼div">
+      <button class="버튼옵션" type="button" th:onclick="|location.href='@{/boardList}'|">취소</button>
+      <div style="width: 10vw"></div>
+      <button class="버튼옵션" type="submit">등록</button>
+    </div>
+  </form>
+</body>
+</html>

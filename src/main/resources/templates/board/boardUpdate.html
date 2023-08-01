@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>boardContent</title>
+  <link rel="stylesheet" href="/boardUpdate.css">
+</head>
+<body>
+  <div th:include="board/header :: nacanaca"></div>
+
+  <form action="boardUpdate" method="post">
+    <input type="hidden" name="idx" th:value="${vo.getIdx}">
+    <div class="제목클래스">
+      <input class="제목입력" type="text" name="title" th:value="${vo.getTitle()}">
+    </div>
+
+    <hr>
+
+    <div class="내용클래스">
+      <textarea class="내용입력" name="content" th:text="${vo.getContent()}"></textarea>
+    </div>
+
+    <div class="버튼div">
+      <button class="버튼옵션" type="button" th:onclick="|location.href='@{/boardList}'|">목록</button>
+      <div style="width: 15vw"></div>
+      <button class="버튼옵션" type="reset">취소</button>
+      <div style="width: 15vw"></div>
+      <button class="버튼옵션" type="submit">수정</button>
+    </div>
+  </form>
+</body>
+</html>
