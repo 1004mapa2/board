@@ -7,5 +7,9 @@
         select * from member where memId=#{memId}
     </select>
 
+    <insert id="register" parameterType="com.solpro.login.domain.Member">
+        insert into member(memId, memPassword, memName, memEmail)
+        values (#{memId}, #{memPassword}, #{memName}, #{memEmail})
+    </insert>
 
 </mapper>

@@ -11,8 +11,14 @@
       <div class="맨위게시판" th:onclick="|location.href='@{/}'|">나카나카 홈페이지</div>
       <div style="width: 72vw"></div>
       <div class="맨위마이페이지">마이페이지</div>
-      <div style="width: 1vw"></div>
-      <div class="로그아웃">로그아웃</div>
+      <div style="width: 2vw"></div>
+      <!--      누르면 session out 만들기-->
+      <div th:if="${not #lists.isEmpty(mvo)}" class="로그아웃">
+        로그아웃
+      </div>
+      <div th:if="${#lists.isEmpty(mvo)}" class="로그아웃" th:onclick="|location.href='@{/login}'|">
+        로그인
+      </div>
     </div>
   </div>
 </body>

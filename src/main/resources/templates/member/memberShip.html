@@ -9,7 +9,7 @@
 <body>
   <h2 class="mainHeader">정보를 입력하세요</h2>
   <hr>
-  <form>
+  <form action="/memberRegister" method="post">
     <div class="sameDiv">
       <div class="id">아이디</div>
       <input type="text" name="memId" id="memId">
@@ -32,7 +32,20 @@
       <button type="submit" class="button">가입</button>
     </div>
   </form>
+
+  <div class="modal">
+    <div class="모달창">
+      <h2 th:text="${msgType}">모달창 제목</h2>
+      <p th:text="${msg}">모달창 내용</p>
+    </div>
+  </div>
   <script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+      if(msgType != null) {
+        document.querySelector('.modal').classList.add('show');
+      // }
+    });
     function registerCheck(){
       let memId = document.querySelector('#memId').value;
       $.ajax({
