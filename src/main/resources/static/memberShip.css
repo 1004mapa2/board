@@ -36,6 +36,7 @@
     visibility: hidden;
     opacity: 0;
     transition: all 1s;
+    overflow: auto;
 }
 
 .모달창 {

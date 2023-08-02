@@ -13,10 +13,10 @@
       <div class="맨위마이페이지">마이페이지</div>
       <div style="width: 2vw"></div>
       <!--      누르면 session out 만들기-->
-      <div th:if="${not #lists.isEmpty(mvo)}" class="로그아웃">
+      <div th:if="${session.mvo != null}" class="로그아웃" th:onclick="|location.href='@{/logout}'|">
         로그아웃
       </div>
-      <div th:if="${#lists.isEmpty(mvo)}" class="로그아웃" th:onclick="|location.href='@{/login}'|">
+      <div th:if="${session.mvo == null}" class="로그아웃" th:onclick="|location.href='@{/loginForm}'|">
         로그인
       </div>
     </div>
