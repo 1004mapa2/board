@@ -8,10 +8,10 @@
 <body>
     <h1 class="mainHeader">로그인</h1>
     <hr style="margin-bottom: 50px">
-    <form action="/static" method="post">
+    <form action="/login" method="post">
         <div class="idDiv">
             <div class="id">아이디</div>
-            <input type="text" id="userId" name="userId">
+            <input type="text" id="memId" name="memId">
         </div>
 
         <div style="height: 10px"></div>
@@ -20,11 +20,11 @@
             <div class="password">
                 비밀번호
             </div>
-            <input type="text" id="userPassword" name="userPassword">
+            <input type="text" id="memPassword" name="memPassword">
         </div>
+        <div th:text="${msg}"></div>
         <div class="buttonDiv">
-        <!--    <button class="button" type="button" th:onclick="return check()">로그인</button>-->
-            <button class="button" type="button" th:onclick="|location.href='@{/boardList}'|">로그인</button>
+            <button class="button" type="submit">로그인</button>
             <div style="margin: 35px"></div>
             <button class="button" type="button" th:onclick="|location.href='@{/memberShip}'|">회원가입</button>
         </div>

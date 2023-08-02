@@ -12,4 +12,8 @@
         values (#{memId}, #{memPassword}, #{memName}, #{memEmail})
     </insert>
 
+    <select id="login" parameterType="com.solpro.login.domain.Member"
+            resultType="com.solpro.login.domain.Member">
+        select * from member where memId=#{memId} and memPassword=#{memPassword}
+    </select>
 </mapper>
