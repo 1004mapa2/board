@@ -16,4 +16,9 @@
             resultType="com.solpro.login.domain.Member">
         select * from member where memId=#{memId} and memPassword=#{memPassword}
     </select>
+
+    <update id="update" parameterType="com.solpro.login.domain.Member">
+        update member set memPassword=#{memPassword}, memName=#{memName}, memEmail=#{memEmail}
+        where memId = #{memId}
+    </update>
 </mapper>
