@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/memberLogin.css">
 </head>
 <body>
     <h1 class="mainHeader">로그인</h1>
@@ -17,17 +17,29 @@
         <div style="height: 10px"></div>
 
         <div class="passwordDiv">
-            <div class="password">
-                비밀번호
-            </div>
-            <input type="text" id="memPassword" name="memPassword">
+            <div class="password">비밀번호</div>
+            <input type="password" id="memPassword" name="memPassword">
         </div>
-        <div th:text="${msg}"></div>
         <div class="buttonDiv">
             <button class="button" type="submit">로그인</button>
             <div style="margin: 35px"></div>
             <button class="button" type="button" th:onclick="|location.href='@{/memberShip}'|">회원가입</button>
         </div>
     </form>
+
+    <!--  모달 창-->
+    <div th:if="${msgType} != null" class="modal show">
+        <div class="모달창">
+            <h2 th:text="${msgType}">모달창 제목</h2>
+            <p th:text="${msg}">모달창 내용</p>
+            <button onclick="closeModal()">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        function closeModal(){
+            document.querySelector('.modal').classList.remove('show');
+        }
+    </script>
 </body>
 </html>
