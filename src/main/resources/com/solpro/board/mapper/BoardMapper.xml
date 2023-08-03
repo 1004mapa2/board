@@ -4,32 +4,32 @@
 <mapper namespace="com.solpro.board.mapper.BoardMapper">
 
     <select id="getLists" resultType="com.solpro.board.entity.Board">
-        select * from board order by idx asc;
+        select * from board order by boardIdx asc;
     </select>
 
 
     <insert id="boardInsert" parameterType="com.solpro.board.entity.Board">
-        insert into board(title, content, writer)
-        values(#{title}, #{content}, #{writer})
+        insert into board(boardTitle, boardContent, boardWriter)
+        values(#{boardTitle}, #{boardContent}, #{boardWriter})
     </insert>
 
 <!--    파라미터가 하나면 생략할 수 있다.-->
 <!--    <select id="boardContent" parameterType="int" resultType="com.solpro.board.entity.Board">-->
     <select id="boardContent" resultType="com.solpro.board.entity.Board">
-        select * from board where idx=#{idx}
+        select * from board where boardIdx=#{boardIdx}
     </select>
 
     <delete id="boardDelete">
-        delete from board where idx=#{idx}
+        delete from board where boardIdx=#{boardIdx}
     </delete>
 
     <update id="boardUpdate" parameterType="com.solpro.board.entity.Board">
-        update board set title=#{title}, content=#{content}
-        where idx=#{idx}
+        update board set boardTitle=#{boardTitle}, boardContent=#{boardContent}
+        where boardIdx=#{boardIdx}
     </update>
 
     <update id="boardCount">
-        update board set count = count + 1 where idx=#{idx}
+        update board set boardCount = boardCount + 1 where boardIdx=#{boardIdx}
     </update>
 
 </mapper>

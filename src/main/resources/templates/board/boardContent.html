@@ -9,29 +9,29 @@
     <div th:include="board/header :: nacanaca"></div>
 
     <div class="제목클래스">
-        <input class="제목입력" th:value="${vo.getTitle()}" readonly="readonly">
+        <input class="제목입력" th:value="${board.getBoardTitle()}" readonly="readonly">
     </div>
 
     <div class="부수내용머리">작성자:
-        <span class="부수내용몸체" th:text="${vo.getWriter()}">홍길동</span>
+        <span class="부수내용몸체" th:text="${board.getBoardWriter()}"></span>
     </div>
     <div class="부수내용머리">작성기간:
-        <span class="부수내용몸체" th:text="${vo.getIndate()}">2022-07-22</span>
+        <span class="부수내용몸체" th:text="${board.getBoardIndate()}"></span>
     </div>
     <div class="부수내용머리">조회수:
-        <span class="부수내용몸체" th:text="${vo.getCount()}">5</span>
+        <span class="부수내용몸체" th:text="${board.getBoardCount()}">5</span>
     </div>
     <hr>
 
     <div class="내용클래스">
-        <textarea class="내용입력" th:text="${vo.getContent}" readonly></textarea>
+        <textarea class="내용입력" th:text="${board.getBoardContent()}" readonly></textarea>
     </div>
     <div class="버튼div">
-        <a class="버튼옵션" th:href="@{boardDelete(idx=${vo.getIdx})}">삭제</a>
+        <a class="버튼옵션" th:href="@{boardDelete(boardIdx=${board.getBoardIdx()})}">삭제</a>
         <div style="width: 15vw"></div>
         <a class="버튼옵션" th:href="@{/}">목록</a>
         <div style="width: 15vw"></div>
-        <a class="버튼옵션" th:href="@{boardUpdate(idx=${vo.getIdx})}">수정</a>
+        <a class="버튼옵션" th:href="@{boardUpdate(boardIdx=${board.getBoardIdx()})}">수정</a>
     </div>
 </body>
 </html>

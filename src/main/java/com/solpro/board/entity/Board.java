@@ -9,10 +9,10 @@ import lombok.Data;
 @Data
 public class Board {
 
-    private int idx;
-    private String title;
-    private String content;
-    private String writer;
-    private String indate;
-    private int count;
+    private int boardIdx;
+    private String boardTitle;
+    private String boardContent;
+    private String boardWriter;
+    private String boardIndate;
+    private int boardCount;
 }

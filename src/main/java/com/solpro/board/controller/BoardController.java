@@ -39,40 +39,40 @@ public class BoardController {
     }
 
     @PostMapping("/boardInsert")
-    public String boardInsert(Board vo) {
+    public String boardInsert(Board board) {
 
-        mapper.boardInsert(vo);
+        mapper.boardInsert(board);
         return "redirect:/";
     }
 
     @GetMapping("/boardContent")
-    public String boardContent(@RequestParam("idx") int idx, Model model) {
+    public String boardContent(@RequestParam("boardIdx") int boardIdx, Model model) {
 
-        Board vo = mapper.boardContent(idx);
-        model.addAttribute("vo", vo);
-        mapper.boardCount(idx);
+        Board board = mapper.boardContent(boardIdx);
+        model.addAttribute("board", board);
+        mapper.boardCount(boardIdx);
         return "board/boardContent";
     }
 
     @GetMapping("/boardDelete")
-    public String boardDelete(@RequestParam("idx") int idx) {
+    public String boardDelete(@RequestParam("boardIdx") int boardIdx) {
 
-        mapper.boardDelete(idx);
+        mapper.boardDelete(boardIdx);
         return "redirect:/";
     }
 
     @GetMapping("/boardUpdate")
-    public String boardUpdateForm(@RequestParam("idx") int idx, Model model) {
+    public String boardUpdateForm(@RequestParam("boardIdx") int boardIdx, Model model) {
 
-        Board vo = mapper.boardContent(idx);
-        model.addAttribute("vo", vo);
+        Board board = mapper.boardContent(boardIdx);
+        model.addAttribute("board", board);
         return "board/boardUpdate";
     }
 
     @PostMapping("/boardUpdate")
-    public String boardUpdate(Board vo) {
+    public String boardUpdate(Board board) {
 
-        mapper.boardUpdate(vo);
+        mapper.boardUpdate(board);
         return "redirect:/";
     }
 }
