@@ -9,14 +9,17 @@
   <div th:fragment="nacanaca">
     <div class="맨위">
       <div class="맨위게시판" th:onclick="|location.href='@{/}'|">나카나카 홈페이지</div>
-      <div style="width: 72vw"></div>
-      <div class="맨위마이페이지">마이페이지</div>
+
+      <div th:if="${session.mvo} != null" style="width: 72vw"></div>
+      <div th:if="${session.mvo} == null" style="width: 80vw"></div>
+
+      <div th:if="${session.mvo} != null" class="맨위마이페이지" th:onclick="|location.href='@{/myPage}'|">마이페이지</div>
       <div style="width: 2vw"></div>
       <!--      누르면 session out 만들기-->
-      <div th:if="${session.mvo != null}" class="로그아웃" th:onclick="|location.href='@{/logout}'|">
+      <div th:if="${session.mvo != null}" class="로그인버튼" th:onclick="|location.href='@{/logout}'|">
         로그아웃
       </div>
-      <div th:if="${session.mvo == null}" class="로그아웃" th:onclick="|location.href='@{/loginForm}'|">
+      <div th:if="${session.mvo == null}" class="로그인버튼" th:onclick="|location.href='@{/loginForm}'|">
         로그인
       </div>
     </div>
