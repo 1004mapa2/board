@@ -43,8 +43,19 @@
     </div>
   </div>
 
-  <script>
+  <!--  모달 창-->
+  <div th:if="${msgType} != null" class="modal show">
+    <div class="모달창">
+      <h2 th:text="${msgType}">모달창 제목</h2>
+      <p th:text="${msg}">모달창 내용</p>
+      <button onclick="closeModal()">닫기</button>
+    </div>
+  </div>
 
+  <script>
+    function closeModal(){
+      document.querySelector('.modal').classList.remove('show');
+    }
 
     document.querySelector('.카테고리1').addEventListener('click', function(){
       document.querySelector('.카테고리1').classList.add('카테고리클릭');

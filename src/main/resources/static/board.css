@@ -10,7 +10,7 @@
     font-size: 20px;
 }
 
-.로그아웃 {
+.로그인버튼 {
     font-size: 20px;
 }
 
@@ -119,4 +119,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position : fixed;
+    background : rgba(0,0,0,0.4);
+    z-index : 5;
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.모달창 {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    margin: auto;
+    width: 50%;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
 }
