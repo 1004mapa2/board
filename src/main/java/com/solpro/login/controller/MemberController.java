@@ -37,7 +37,7 @@ public class MemberController {
             redirectAttributes.addFlashAttribute("msg", "모든 내용을 입력하세요.");
             return "redirect:/loginForm";
         }
-        Member mvo = mapper.login(member);
+        Member mvo = mapper.memberLogin(member);
         if(mvo != null){
             redirectAttributes.addFlashAttribute("msgType", "성공 메시지");
             redirectAttributes.addFlashAttribute("msg", "로그인 성공!");
@@ -81,7 +81,7 @@ public class MemberController {
             return "redirect:/myPage";
         }
 
-        int result = mapper.update(member);
+        int result = mapper.memberUpdate(member);
         if(result == 1){
             redirectAttributes.addFlashAttribute("msgType", "성공메시지");
             redirectAttributes.addFlashAttribute("msg", "수정 성공!");
@@ -103,7 +103,7 @@ public class MemberController {
     @GetMapping("/memberCheck")
     public @ResponseBody int memberCheck(@RequestParam("memId") String memId) {
 
-        Member m = mapper.registerCheck(memId);
+        Member m = mapper.memberRegisterCheck(memId);
         if (m != null) {
             return 0;
         } else if (memId.equals("")) {
@@ -132,7 +132,7 @@ public class MemberController {
             redirectAttributes.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
             return "redirect:/memberShip";
         }
-        int result = mapper.register(member);
+        int result = mapper.memberRegister(member);
         if (result == 1) { //성공
             redirectAttributes.addFlashAttribute("msgType", "성공 메시지");
             redirectAttributes.addFlashAttribute("msg", "회원가입에 성공했습니다.");

@@ -30,12 +30,12 @@
       <div class="조회수">조회수</div>
     </div>
     <hr>
-    <div class="row" th:each="vo:${list}" th:onclick="|location.href='@{boardContent(idx=${vo.getIdx()})}'|">
-      <div class="인덱스" th:text="${vo.getIdx()}">1</div>
-      <div class="제목" style="text-align:justify" th:text="${vo.getTitle()}">제목샘플</div>
-      <div class="작성자" th:text="${vo.getWriter()}">작성자샘플</div>
-      <div class="작성시간" th:text="${vo.getIndate()}">작성시간샘플</div>
-      <div class="조회수" th:text="${vo.getCount()}">조회수샘플</div>
+    <div class="row" th:each="board:${list}" th:onclick="|location.href='@{boardContent(boardIdx=${board.getBoardIdx()})}'|">
+      <div class="인덱스" th:text="${board.getBoardIdx()}">1</div>
+      <div class="제목" style="text-align:justify" th:text="${board.getBoardTitle()}">제목샘플</div>
+      <div class="작성자" th:text="${board.getBoardWriter()}">작성자샘플</div>
+      <div class="작성시간" th:text="${board.getBoardIndate()}">작성시간샘플</div>
+      <div class="조회수" th:text="${board.getBoardCount()}">조회수샘플</div>
     </div>
     <hr>
     <div class="글쓰기위치">

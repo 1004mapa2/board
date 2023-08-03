@@ -3,21 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.solpro.login.mapper.MemberMapper">
 
-    <select id="registerCheck" resultType="com.solpro.login.domain.Member">
+    <select id="memberRegisterCheck" resultType="com.solpro.login.domain.Member">
         select * from member where memId=#{memId}
     </select>
 
-    <insert id="register" parameterType="com.solpro.login.domain.Member">
+    <insert id="memberRegister" parameterType="com.solpro.login.domain.Member">
         insert into member(memId, memPassword, memName, memEmail)
         values (#{memId}, #{memPassword}, #{memName}, #{memEmail})
     </insert>
 
-    <select id="login" parameterType="com.solpro.login.domain.Member"
+    <select id="memberLogin" parameterType="com.solpro.login.domain.Member"
             resultType="com.solpro.login.domain.Member">
         select * from member where memId=#{memId} and memPassword=#{memPassword}
     </select>
 
-    <update id="update" parameterType="com.solpro.login.domain.Member">
+    <update id="memberUpdate" parameterType="com.solpro.login.domain.Member">
         update member set memPassword=#{memPassword}, memName=#{memName}, memEmail=#{memEmail}
         where memId = #{memId}
     </update>
