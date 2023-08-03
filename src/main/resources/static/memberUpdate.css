@@ -1,0 +1,59 @@
+.mainHeader {
+    display: flex;
+    justify-content: center;
+}
+
+
+.sameDiv {
+    text-align: center;
+}
+
+.id {
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.button {
+    height: 40px;
+    width: 80px;
+    font-size: 20px;
+}
+
+.modal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position : fixed;
+    background : rgba(0,0,0,0.4);
+    z-index : 5;
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.모달창 {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    margin: auto;
+    width: 50%;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#오류메시지 {
+    display: flex;
+    justify-content: center;
+}

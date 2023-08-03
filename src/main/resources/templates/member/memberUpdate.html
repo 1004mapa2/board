@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>membership</title>
+  <link rel="stylesheet" href="/memberUpdate.css">
+</head>
+<body>
+  <h2 class="mainHeader">수정페이지</h2>
+  <hr>
+  <form action="/memberUpdate" method="post">
+    <input type="hidden" id="memId" name="memId" th:value="${session.mvo.getMemId()}">
+    <input type="hidden" id="memPassword" name="memPassword">
+    <div class="sameDiv">
+      <div class="id">아이디</div>
+      <div th:text="${session.mvo.getMemId()}"></div>
+      <div class="id">비밀번호</div>
+      <input type="password" name="memPassword1" id="memPassword1" onkeyup="passwordCheck()">
+      <div class="id">비밀번호확인</div>
+      <input type="password" name="memPassword2" id="memPassword2" onkeyup="passwordCheck()">
+      <div class="id">이름</div>
+      <input type="text" name="memName" id="memName" th:value="${session.mvo.getMemName()}">
+      <div class="id">이메일</div>
+      <input type="text" name="memEmail" id="memEmail" th:value="${session.mvo.getMemEmail()}">
+    </div>
+    <div id="오류메시지"></div>
+    <div class="buttonDiv">
+      <button type="button" class="button" th:onclick="|location.href='@{/}'|">취소</button>
+      <div style="margin: 35px"></div>
+      <button type="submit" class="button">수정</button>
+    </div>
+  </form>
+
+  <!--  모달 창-->
+  <div th:if="${msgType} != null" class="modal show">
+    <div class="모달창">
+      <h2 th:text="${msgType}">모달창 제목</h2>
+      <p th:text="${msg}">모달창 내용</p>
+      <button onclick="closeModal()">닫기</button>
+    </div>
+  </div>
+
+  <script>
+    function closeModal(){
+      document.querySelector('.modal').classList.remove('show');
+    }
+    function passwordCheck(){
+      let password1 = document.querySelector('#memPassword1').value;
+      let password2 = document.querySelector('#memPassword2').value;
+      if(password1 == password2 && password1 != "" && password2 != ""){
+        document.querySelector('#오류메시지').innerHTML = "비밀번호가 같습니다.";
+        document.querySelector('#오류메시지').style.color = "green";
+        document.querySelector('#memPassword').value = password1;
+      } else if(password1 == "" || password2 == "") {
+        document.querySelector('#오류메시지').innerHTML = "";
+      } else {
+        document.querySelector('#오류메시지').innerHTML = "비밀번호가 같지 않습니다.";
+        document.querySelector('#오류메시지').style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
