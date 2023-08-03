@@ -5,11 +5,11 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MemberMapper {
-    public Member registerCheck(String memId);
+    public Member memberRegisterCheck(String memId);
 
-    public int register(Member member);
+    public int memberRegister(Member member);
 
-    public Member login(Member member);
+    public Member memberLogin(Member member);
 
-    public int update(Member member);
+    public int memberUpdate(Member member);
 }
