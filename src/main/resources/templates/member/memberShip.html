@@ -9,7 +9,7 @@
 <body>
   <h2 class="mainHeader">정보를 입력하세요</h2>
   <hr>
-  <form action="/memberRegister" method="post">
+  <form id="frm" action="/memberRegister" method="post">
     <input type="hidden" id="memPassword" name="memPassword">
     <div class="sameDiv">
       <div class="id">아이디</div>
@@ -30,11 +30,12 @@
     <div class="buttonDiv">
       <button type="button" class="button" th:onclick="|location.href='@{/}'|">취소</button>
       <div style="margin: 35px"></div>
-      <button type="submit" class="button">가입</button>
+      <button type="button" class="button" th:onclick="검사()">가입</button>
     </div>
   </form>
 
-  <div class="modal">
+  <!--  모달 창-->
+  <div th:if="${msgType} != null" class="modal show">
     <div class="모달창">
       <h2 th:text="${msgType}">모달창 제목</h2>
       <p th:text="${msg}">모달창 내용</p>
@@ -42,14 +43,15 @@
     </div>
   </div>
   <script>
-    // window.addEventListener("DOMContentLoaded", function(){
-    //   if(myDiv != null) {
-    //     document.querySelector('.modal').classList.add('show');
-    //   }else {
-    //     document.querySelector('.modal').classList.remove('show');
-    //   }
-    // });
-
+    let pass;
+    function 검사(){
+      //중복확인 안했으면 alert 띄우기
+      if(pass != 2){
+        alert("아이디 중복확인 다시 하세요");
+        return false;
+      }
+      document.querySelector('#frm').submit();
+    }
     function closeModal(){
       document.querySelector('.modal').classList.remove('show');
     }
@@ -60,12 +62,13 @@
         type : "get",
         data : {"memId" : memId},
         success : function (result){
+          pass = result;
           if(result == 0){
             alert("사용중인 아이디입니다.");
           } else if(result == 1){
             alert("아이디를 입력하세요.");
           } else {
-            alert("사용가능한 아이디입니다.")
+            alert("사용가능한 아이디입니다.");
           }
         },
         error : function (){ alert("error"); }
