@@ -19,19 +19,20 @@
         <span class="부수내용몸체" th:text="${board.getBoardIndate()}"></span>
     </div>
     <div class="부수내용머리">조회수:
-        <span class="부수내용몸체" th:text="${board.getBoardCount()}">5</span>
+        <span class="부수내용몸체" th:text="${board.getBoardCount()}"></span>
     </div>
     <hr>
 
     <div class="내용클래스">
         <textarea class="내용입력" th:text="${board.getBoardContent()}" readonly></textarea>
     </div>
+
     <div class="버튼div">
-        <a class="버튼옵션" th:href="@{boardDelete(boardIdx=${board.getBoardIdx()})}">삭제</a>
+        <button th:disabled= "${session.mvo} == null or ${!session.mvo.getMemId().equals(board.getMemId())}" class="버튼옵션" th:onclick="|location.href='@{/boardDelete(boardIdx=${board.getBoardIdx()})}'|">삭제</button>
         <div style="width: 15vw"></div>
-        <a class="버튼옵션" th:href="@{/}">목록</a>
+        <button class="버튼옵션" th:onclick="|location.href='@{/}'|">목록</button>
         <div style="width: 15vw"></div>
-        <a class="버튼옵션" th:href="@{boardUpdate(boardIdx=${board.getBoardIdx()})}">수정</a>
+        <button th:disabled= "${session.mvo} == null or ${!session.mvo.getMemId().equals(board.getMemId())}" class="버튼옵션" th:onclick="|location.href='@{/boardUpdate(boardIdx=${board.getBoardIdx()})}'|">수정</button>
     </div>
 </body>
 </html>
