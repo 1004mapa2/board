@@ -65,7 +65,9 @@ hr {
     height: 50px;
     color: white;
     border-radius: 30px;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 15px;
 }

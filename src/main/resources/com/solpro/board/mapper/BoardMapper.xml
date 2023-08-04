@@ -9,8 +9,8 @@
 
 
     <insert id="boardInsert" parameterType="com.solpro.board.entity.Board">
-        insert into board(boardTitle, boardContent, boardWriter)
-        values(#{boardTitle}, #{boardContent}, #{boardWriter})
+        insert into board(memId, boardTitle, boardContent, boardWriter)
+        values(#{memId}, #{boardTitle}, #{boardContent}, #{boardWriter})
     </insert>
 
 <!--    파라미터가 하나면 생략할 수 있다.-->

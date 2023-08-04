@@ -9,6 +9,8 @@
   <div th:include="board/header :: nacanaca"></div>
 
   <form action="boardInsert" method="post">
+    <input type="hidden" name="memId" th:value="${session.mvo.getMemId()}">
+    <input type="hidden" name="boardWriter" th:value="${session.mvo.getMemName()}">
     <div class="제목클래스">
       <input class="제목입력" type="text" name="boardTitle" placeholder="제목을 입력하세요">
     </div>

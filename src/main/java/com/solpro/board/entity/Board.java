@@ -10,6 +10,7 @@ import lombok.Data;
 public class Board {
 
     private int boardIdx;
+    private String memId;
     private String boardTitle;
     private String boardContent;
     private String boardWriter;

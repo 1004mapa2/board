@@ -38,7 +38,7 @@
       <div class="조회수" th:text="${board.getBoardCount()}">조회수샘플</div>
     </div>
     <hr>
-    <div class="글쓰기위치">
+    <div th:if="${session.mvo} != null" class="글쓰기위치">
       <a class="글쓰기" href="boardForm">글쓰기</a>
     </div>
   </div>
